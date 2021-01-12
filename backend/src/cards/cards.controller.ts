@@ -1,4 +1,4 @@
-import { Controller, Get, Param, NotFoundException, Post, Body, BadRequestException, Patch, HttpCode } from '@nestjs/common';
+import { Controller, Get, Param, NotFoundException, Post, Body, BadRequestException, Patch, HttpCode, Delete } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { ObjectID } from 'mongodb';
@@ -41,5 +41,15 @@ export class CardsController {
       throw new NotFoundException();
     }
       await this.cardsRepository.update(id, card);
+    }
+
+    @Delete(':id')
+    @HttpCode(204)
+    async deleteCard(@Param('id') id): Promise<void> {
+      const exists = ObjectID.isValid(id) && await this.cardsRepository.findOne(id);
+        if (!exists) {
+      throw new NotFoundException();
+    }
+      await this.cardsRepository.delete(id);
     }
 }

@@ -22,7 +22,7 @@ import { Card } from './cards/card.entity';
       useNewUrlParser: true,
       autoLoadEntities: true
     }),
-    TypeOrmModule.forFeature([Card])
+    TypeOrmModule.forFeature([Card]),
   ],
   controllers: [AppController, CardsController],
   providers: [AppService],

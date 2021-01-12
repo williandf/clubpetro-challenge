@@ -1,4 +1,4 @@
-import { Controller, Get, Param, NotFoundException } from '@nestjs/common';
+import { Controller, Get, Param, NotFoundException, Post, Body, BadRequestException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
 import { ObjectID } from 'mongodb';
@@ -20,10 +20,16 @@ export class CardsController {
     async getCard(@Param('id') id): Promise<Card> {
       const card = ObjectID.isValid(id) && await this.cardsRepository.findOne(id);
       if (!card) {
-      // Entity not found
       throw new NotFoundException();
-    }
+      }
     return card;
-}
+    }
 
+    @Post()
+    async createPet(@Body() card: Partial<Card>): Promise<Card> {
+      if (!card || !card.location || !card.meta) {
+      throw new BadRequestException(`A card must be changed only location and meta data`);
+      }
+      return await this.cardsRepository.save(new Card(card));
+    }
 }

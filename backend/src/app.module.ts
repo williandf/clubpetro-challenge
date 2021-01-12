@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CardsController } from './cards/cards.controller';
 import { ConfigModule } from '@nestjs/config';
+import { Card } from './cards/card.entity';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ConfigModule } from '@nestjs/config';
       useNewUrlParser: true,
       autoLoadEntities: true
     }),
+    TypeOrmModule.forFeature([Card])
   ],
   controllers: [AppController, CardsController],
   providers: [AppService],

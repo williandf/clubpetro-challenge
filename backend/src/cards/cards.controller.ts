@@ -13,7 +13,7 @@ export class CardsController {
   
     @Get()
     async getCards(): Promise<Card[]> {
-      return await this.cardsRepository.find();
+      return await this.cardsRepository.find({ order: { meta: "ASC" } });
     }
 
     @Get(':id')
@@ -27,8 +27,12 @@ export class CardsController {
 
     @Post()
     async createCard(@Body() card: Partial<Card>): Promise<Card> {
+      const checkLocation = await this.cardsRepository.find({ where: { country: card.country, location: card.location } });
+      if (checkLocation.length) {
+        throw new BadRequestException('Não é possivel cadastrar essa cidade pois já existe');
+      }
       if (!card || !card.country || !card.urlFlag || !card.location || !card.meta) {
-      throw new BadRequestException(`A card must be created only country, urlFlag, location and meta date`);
+        throw new BadRequestException(`A card must be created only country, urlFlag, location and meta date`);
       }
       return await this.cardsRepository.save(new Card(card));
     }
@@ -39,6 +43,10 @@ export class CardsController {
       const exists = ObjectID.isValid(id) && await this.cardsRepository.findOne(id);
         if (!exists) {
       throw new NotFoundException();
+    }
+    const checkLocation = await this.cardsRepository.find({ where: { country: card.country, location: card.location } });
+    if (checkLocation.length) {
+      throw new BadRequestException('Não é possivel cadastrar essa cidade pois já existe');
     }
       card.updatedAt = new Date()
       await this.cardsRepository.update(id, card);

@@ -1,17 +1,13 @@
 import styled from 'styled-components';
-import { } from 'styled-components/cssprop';
 
 export const Section = styled.section`
-  margin: 0 auto;
-  max-width: 1440px;
-  width: 90%;
   height: 247px;
   top: 38px;
+  margin-bottom: 53px;
   background: #4f9419;
 `;
 
 export const Form = styled.form`
-
   align-items: center;
   justify-content: center;
 `;
@@ -19,7 +15,7 @@ export const Form = styled.form`
 export const FormData = styled.div`
   display:flex;
   flex-wrap: wrap;
-  & p {
+  & label {
     align-content: space-around;
     margin-left: 72px;
     font-size: 16px;

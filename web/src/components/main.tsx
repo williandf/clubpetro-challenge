@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-  max-width: 1440px;
-  width: 90%;
-  margin: 0 auto;
+  padding-left: 36px;
+  padding-right: 36px;
+  display:flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 `
 export const Wrapper = styled.div`
   width: 250px;
   height: 250px;
-  margin-top: 53px;
   margin-right: 30px;
-  margin-left: 36px;
+  margin-bottom: 33px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;

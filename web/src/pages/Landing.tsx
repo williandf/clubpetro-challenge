@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
 
 import ImgLogo from '../images/logo.svg';
-
+import api from '../services/api';
 
 import Header from '../components/header';
 import { Main, Wrapper, Flag, Icons, Country, Data } from '../components/main';
 
+
 function Landing() {
+  useEffect(() => {
+    api.get('cards').then(response => {
+      console.log(response)
+    })
+  }, []);
+
   return(
     <div id="page-landing">
       <Header>

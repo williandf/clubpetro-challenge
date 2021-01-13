@@ -26,8 +26,8 @@ export class CardsController {
     }
 
     @Post()
-    async createPet(@Body() card: Partial<Card>): Promise<Card> {
-      if (!card || !card.location || !card.meta) {
+    async createCard(@Body() card: Partial<Card>): Promise<Card> {
+      if (!card || !card.country || !card.location || !card.meta) {
       throw new BadRequestException(`A card must be changed only location and meta data`);
       }
       return await this.cardsRepository.save(new Card(card));
@@ -40,6 +40,7 @@ export class CardsController {
         if (!exists) {
       throw new NotFoundException();
     }
+      card.updatedAt = new Date()
       await this.cardsRepository.update(id, card);
     }
 

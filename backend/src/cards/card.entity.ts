@@ -1,4 +1,4 @@
-import { Entity, ObjectID, ObjectIdColumn, Column, CreateDateColumn } from 'typeorm';
+import { Entity, ObjectID, ObjectIdColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('cards')
   export class Card {
@@ -8,7 +8,7 @@ import { Entity, ObjectID, ObjectIdColumn, Column, CreateDateColumn } from 'type
     @Column() location: string;
     @Column() meta: string;
     @CreateDateColumn() createdAt: Date;
-    @CreateDateColumn() updatedAt: Date;
+    @Column() updatedAt?: Date;
 
     constructor(card?: Partial<Card>) {
       Object.assign(this, card);

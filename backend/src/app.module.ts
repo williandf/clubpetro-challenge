@@ -9,19 +9,7 @@ import { Card } from './cards/card.entity';
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    TypeOrmModule.forRoot({
-      name: 'default',
-      type: 'mongodb',
-      host: process.env.MONGODB_CONNECTION_URL,
-      port: 27017,
-      database: process.env.MONGODB_DATABSE,
-      entities: [
-        __dirname + '/**/*.entity{.ts,.js}',
-      ],
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      autoLoadEntities: true
-    }),
+    TypeOrmModule.forRoot(),
     TypeOrmModule.forFeature([Card]),
   ],
   controllers: [AppController, CardsController],

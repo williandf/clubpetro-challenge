@@ -28,7 +28,7 @@ export class CardsController {
     @Post()
     async createCard(@Body() card: Partial<Card>): Promise<Card> {
       if (!card || !card.country || !card.location || !card.meta) {
-      throw new BadRequestException(`A card must be changed only location and meta data`);
+      throw new BadRequestException(`A card must be created only country, location and meta date`);
       }
       return await this.cardsRepository.save(new Card(card));
     }

@@ -9,7 +9,7 @@ export const Section = styled.section`
 
 export const Form = styled.form`
   padding-top: 60px;
-  align-items: center;
+  align-items: flex-end;
   display:flex;
   flex-wrap: wrap;
 `;

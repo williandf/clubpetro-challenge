@@ -4,10 +4,12 @@ import ClearIcon from '@material-ui/icons/Clear';
 
 import ImgLogo from '../images/logo.svg';
 import api from '../services/api';
+import apiRestCountries from '../services/apiRestCountries';
 
 import Header from '../components/header';
 import { Main, Wrapper, Flag, Icons, Country, Data } from '../components/main';
-import { Section, Form, FormData} from '../components/form';
+import { Section, Form, SelectCountry, InputCountry, InputMeta, ButtonAdd } from '../components/form';
+
 
 interface Card {
   id: string;
@@ -17,13 +19,27 @@ interface Card {
   meta: string;
 }
 
+interface Countries {
+  flag: string;
+  translations: {
+    br: string;
+  };
+}
+
 function Landing() {
   const [cards, setCards] = useState<Card[]>([]);
-
+  const [restCountries, setRestCountries] = useState<Countries[]>([]);
+  
   useEffect(() => {
     api.get('cards').then(response => {
       setCards(response.data);
     })
+  }, []);
+
+  useEffect(() => {
+    apiRestCountries.get('all?fields=translations;flag').then(response => {
+      setRestCountries(response.data);
+    });
   }, []);
 
   return(
@@ -33,24 +49,34 @@ function Landing() {
       </Header>
       <Section>
         <Form>
-          <FormData>
-            <label>País:</label>
-            <select name="country">
-            <option value="" selected disabled>Selecione</option>
-            <option value="Brasil">Brasil</option>
-            </select>
-            <label>Local:</label>
-            <input id="local" type="text" name="local" placeholder="Digite o local que deseja conhecer" />
-            <label>Meta:</label>
-            <input id="meta" type="date" name="meta" placeholder="mês/ano" />
-            <button>Adicionar</button>
-        </FormData>
+          <SelectCountry>
+          <label>País:</label>
+          <select name="country">
+          <option value="">Selecione</option>
+          {restCountries.map((Countries, index) => {
+            return (
+              <option key={index} value={Countries.translations.br}>{Countries.translations.br}</option>
+            )
+          })}
+          </select>
+          </SelectCountry>
+          <InputCountry>
+          <label>Local:</label>
+          <input id="local" type="text" name="local" placeholder="Digite o local que deseja conhecer" />
+          </InputCountry>
+          <InputMeta>
+          <label>Meta:</label>
+          <input id="meta" name="meta" placeholder="mês/ano" />
+          </InputMeta>
+          <ButtonAdd>
+          <button>Adicionar</button>
+          </ButtonAdd>
         </Form>
       </Section>
         <Main>
-        {cards.map((card, index) => {
+        {cards.map((card) => {
                   return (
-          <Wrapper key={index}>
+          <Wrapper key={card.id}>
             <Icons>
               <EditIcon className="editIcon"/>
               <ClearIcon className="clearIcon"/>

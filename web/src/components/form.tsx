@@ -8,21 +8,22 @@ export const Section = styled.section`
 `;
 
 export const Form = styled.form`
+  padding-top: 60px;
   align-items: center;
-  justify-content: center;
-`;
-
-export const FormData = styled.div`
   display:flex;
   flex-wrap: wrap;
-  & label {
+`;
+
+export const SelectCountry = styled.div`
+  label {
+    display:flex;
     align-content: space-around;
     margin-left: 72px;
     font-size: 16px;
     line-height: 18,75px;
     color: #FFF;
   }
-  & select {
+  select {
     align-content: space-around;
     width: 303px;
     height: 48px;
@@ -34,7 +35,17 @@ export const FormData = styled.div`
     margin-left: 72px;
     border: none;
   }
-  & input.input-meta {
+`;
+
+export const InputCountry = styled.div`
+  label {
+    display:flex;
+    margin-left: 34px;
+    font-size: 16px;
+    line-height: 18,75px;
+    color: #FFF;
+  }
+  input {
     align-content: space-around;
     width: 455px;
     height: 48px;
@@ -45,14 +56,35 @@ export const FormData = styled.div`
     padding-left: 18px;
     margin-left: 34px;
     border: none;
-  & input {
-      width: 238px;
-      height: 70px;
-      margin-left: 28px;
-    }
   }
-  & button {
-    align-content: space-around;
+`;
+
+export const InputMeta = styled.div`
+  label {
+    display:flex;
+    margin-left: 34px;
+    font-size: 16px;
+    line-height: 18,75px;
+    color: #FFF;
+  }
+  input {
+    width: 238px;
+    height: 48px;
+    margin-left: 28px;
+    border-radius: 7px;
+    font-size: 16px;
+    line-height: 18.75px;
+    color: #868686;
+    padding-left: 18px;
+    margin-left: 34px;
+    border: none;
+    }
+`;
+
+export const ButtonAdd = styled.div`
+  button {
+    margin-left: 34px;
+    align-content: center;
     width: 203px;
     height: 49px;
     background: #006C18;

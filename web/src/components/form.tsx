@@ -81,8 +81,7 @@ export const InputMeta = styled.div`
     }
 `;
 
-export const ButtonAdd = styled.div`
-  button {
+export const ButtonAdd = styled.button`
     margin-left: 34px;
     align-content: center;
     width: 203px;
@@ -94,5 +93,5 @@ export const ButtonAdd = styled.div`
     font-size: 18px;
     line-height: 21px;
     cursor: pointer;
-  }
+    border: none;
 `;

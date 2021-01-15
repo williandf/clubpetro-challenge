@@ -1,6 +1,7 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
+import InputMask from 'react-input-mask';
 
 import ImgLogo from '../images/logo.svg';
 import api from '../services/api';
@@ -21,7 +22,7 @@ interface Card {
 
 interface Countries {
   country: string;
-  flag: string;
+  urlFlag: string;
 }
 
 function Landing() {
@@ -44,17 +45,10 @@ function Landing() {
       const countries = response.data.map( (country: { translations: { br: string; }; flag: string; }) => {
         return {
           country: country.translations.br,
-          flag: country.flag
+          urlFlag: country.flag
         }
-      }).sort((a: { country: number; }, b: { country: number; }) => {
-        if (a.country > b.country) {
-          return 1;
-        }
-        if (a.country < b.country) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
+      }).sort((a: { country: string; }, b: { country: string; }) => {
+        return a.country.localeCompare(b.country);
       });
       setRestCountries(countries);
     });
@@ -82,7 +76,7 @@ function Landing() {
           <select name="country" value={country} onChange={event => SetCountry(event.target.value)}>
           <option value="" disabled >Selecione</option>
           {restCountries.map((countries) => ( 
-            <option key={countries.country} value={countries.country}>{countries.country}</option>
+            <option key={countries.country} test-flag={countries.urlFlag} value={countries.country}>{countries.country}</option>
             ))}
           </select>
           </SelectCountry>
@@ -92,11 +86,9 @@ function Landing() {
           </InputCountry>
           <InputMeta>
           <label>Meta:</label>
-          <input type="text" value={meta} onChange={event => SetMeta(event.target.value)} placeholder="mês/ano" />
+          <InputMask mask="99/9999" type="text" value={meta} onChange={event => SetMeta(event.target.value)} placeholder="mês/ano" />          
           </InputMeta>
-          <ButtonAdd>
-          <button>Adicionar</button>
-          </ButtonAdd>
+          <ButtonAdd>Adicionar</ButtonAdd>
         </Form>
       </Section>
         <Main>

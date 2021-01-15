@@ -29,7 +29,7 @@ function Landing() {
   const [cards, setCards] = useState<Card[]>([]);
   const [restCountries, setRestCountries] = useState<Countries[]>([]);
   
-  const [country, SetCountry] = useState('');
+  const [countryAndFlag, SetCountryAndFlag] = useState('');
   const [location, SetLocation] = useState('');
   const [meta, SetMeta] = useState('');
 
@@ -54,14 +54,16 @@ function Landing() {
     });
   }, []);
 
-  function handleSubmit(event: FormEvent) {
+
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    console.log({
-      country,
-      location,
-      meta
-    })
+    const data = new FormData();
+
+    
+    data.append('location', location);
+    data.append('meta', meta);
+
   }
 
   return(
@@ -73,10 +75,10 @@ function Landing() {
         <Form onSubmit={handleSubmit}>
           <SelectCountry>
           <label>País:</label>
-          <select name="country" value={country} onChange={event => SetCountry(event.target.value)}>
+          <select name="country" value={countryAndFlag} onChange={event => SetCountryAndFlag(event.target.value)}>
           <option value="" disabled >Selecione</option>
           {restCountries.map((countries) => ( 
-            <option key={countries.country} test-flag={countries.urlFlag} value={countries.country}>{countries.country}</option>
+            <option key={countries.country} value={JSON.stringify({country: countries.country, urlFlag: countries.urlFlag})}>{countries.country}</option>
             ))}
           </select>
           </SelectCountry>

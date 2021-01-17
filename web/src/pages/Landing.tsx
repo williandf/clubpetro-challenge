@@ -28,7 +28,7 @@ interface Countries {
 function Landing() {
   const [cards, setCards] = useState<Card[]>([]);
   const [restCountries, setRestCountries] = useState<Countries[]>([]);
-  
+
   const [countryAndFlag, SetCountryAndFlag] = useState('');
   const [location, SetLocation] = useState('');
   const [meta, SetMeta] = useState('');
@@ -60,10 +60,21 @@ function Landing() {
 
     const data = new FormData();
 
-    
+    data.append('countryAndFlag', countryAndFlag);
     data.append('location', location);
     data.append('meta', meta);
 
+    api.post('cards', data).then(res => console.log(res.data));
+  }
+
+  async function handleDeleteCard(id: string) {
+    try {
+      await api.delete(`cards/${id}`).then(res => console.log(res.data));
+
+      setCards(cards.filter(card => card.id !== id));
+    } catch (err) {
+      alert('Erro ao deletar caso, tente novamente.');
+    }
   }
 
   return(
@@ -99,7 +110,7 @@ function Landing() {
           <Wrapper key={card.id}>
             <Icons>
               <EditIcon className="editIcon"/>
-              <ClearIcon className="clearIcon"/>
+              <ClearIcon className="clearIcon" onClick={() => handleDeleteCard(card.id)} type='button'/>
             </Icons>
                 <Flag>
                   <img src={card.urlFlag} alt={card.country}/>

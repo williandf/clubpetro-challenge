@@ -54,17 +54,32 @@ function Landing() {
     });
   }, []);
 
-
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const data = new FormData();
+    const obj = JSON.parse(countryAndFlag);
+    const country = obj.country;
+    const urlFlag = obj.urlFlag;
 
-    data.append('countryAndFlag', countryAndFlag);
-    data.append('location', location);
-    data.append('meta', meta);
+    const data = {
+      country,
+      urlFlag,
+      location,
+      meta,
+    }
 
-    api.post('cards', data).then(res => console.log(res.data));
+    await api.post('cards', data).then(response => {
+      console.log(response.data);
+      console.log(response.status);
+      console.log(response.statusText);
+      console.log(response.headers);
+      console.log(response.config);
+      if (response.status === 201) {
+      alert('Adicionado Com Sucesso')
+      }
+    }).catch(error => {
+      console.log(error)
+    });
   }
 
   async function handleDeleteCard(id: string) {
@@ -73,7 +88,7 @@ function Landing() {
 
       setCards(cards.filter(card => card.id !== id));
     } catch (err) {
-      alert('Erro ao deletar caso, tente novamente.');
+      alert('Erro ao deletar card, tente novamente.');
     }
   }
 
@@ -86,20 +101,38 @@ function Landing() {
         <Form onSubmit={handleSubmit}>
           <SelectCountry>
           <label>País:</label>
-          <select name="country" value={countryAndFlag} onChange={event => SetCountryAndFlag(event.target.value)}>
+          <select 
+            name="country" 
+            value={countryAndFlag} 
+            onChange={event => SetCountryAndFlag(event.target.value)}
+          >
           <option value="" disabled >Selecione</option>
           {restCountries.map((countries) => ( 
-            <option key={countries.country} value={JSON.stringify({country: countries.country, urlFlag: countries.urlFlag})}>{countries.country}</option>
+            <option 
+              key={countries.country} 
+              value={JSON.stringify({country: countries.country, urlFlag: countries.urlFlag})}>
+                {countries.country}
+            </option>
             ))}
           </select>
           </SelectCountry>
           <InputCountry>
           <label>Local:</label>
-          <input type="text" value={location} onChange={event=> SetLocation(event.target.value)} placeholder="Digite o local que deseja conhecer" />
+          <input 
+            type="text" 
+            value={location} 
+            onChange={event=> SetLocation(event.target.value)} 
+            placeholder="Digite o local que deseja conhecer" />
           </InputCountry>
           <InputMeta>
           <label>Meta:</label>
-          <InputMask mask="99/9999" type="text" value={meta} onChange={event => SetMeta(event.target.value)} placeholder="mês/ano" />          
+          <InputMask 
+            mask="99/9999" 
+            type="text" 
+            value={meta} 
+            onChange={event => SetMeta(event.target.value)} 
+            placeholder="mês/ano" 
+          />          
           </InputMeta>
           <ButtonAdd>Adicionar</ButtonAdd>
         </Form>

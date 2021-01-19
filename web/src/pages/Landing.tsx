@@ -2,6 +2,7 @@ import React, { FormEvent, useEffect, useState } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
 import InputMask from 'react-input-mask';
+import { useHistory } from 'react-router-dom';
 
 import ImgLogo from '../images/logo.svg';
 import api from '../services/api';
@@ -10,6 +11,7 @@ import apiRestCountries from '../services/apiRestCountries';
 import Header from '../components/header';
 import { Main, Wrapper, Flag, Icons, Country, Data } from '../components/main';
 import { Section, Form, SelectCountry, InputCountry, InputMeta, ButtonAdd } from '../components/form';
+
 
 
 interface Card {
@@ -26,6 +28,8 @@ interface Countries {
 }
 
 function Landing() {
+  const history = useHistory();
+
   const [cards, setCards] = useState<Card[]>([]);
   const [restCountries, setRestCountries] = useState<Countries[]>([]);
 
@@ -69,17 +73,13 @@ function Landing() {
     }
 
     await api.post('cards', data).then(response => {
-      console.log(response.data);
-      console.log(response.status);
-      console.log(response.statusText);
-      console.log(response.headers);
-      console.log(response.config);
       if (response.status === 201) {
-      alert('Adicionado Com Sucesso')
+      alert('Adicionado Com Sucesso');
       }
     }).catch(error => {
-      console.log(error)
+      alert(`${error.response.data.message}`);
     });
+    
   }
 
   async function handleDeleteCard(id: string) {
@@ -91,6 +91,10 @@ function Landing() {
       alert('Erro ao deletar card, tente novamente.');
     }
   }
+
+  function handleEditCard(id: string) {
+      history.push(`/cards/${id}`);
+    };
 
   return(
     <div id="page-landing">
@@ -142,7 +146,7 @@ function Landing() {
                   return (
           <Wrapper key={card.id}>
             <Icons>
-              <EditIcon className="editIcon"/>
+              <EditIcon className="editIcon" onClick={() => handleEditCard(card.id)} type="button"/>
               <ClearIcon className="clearIcon" onClick={() => handleDeleteCard(card.id)} type='button'/>
             </Icons>
                 <Flag>

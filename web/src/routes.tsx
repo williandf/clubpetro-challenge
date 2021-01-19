@@ -2,6 +2,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import GlobalStyle from './components/global';
 import Landing from './pages/Landing';
+import EditCard from './pages/EditCard';
 
 function Routes() {
   return (
@@ -9,6 +10,7 @@ function Routes() {
     <GlobalStyle />
       <Switch>
         <Route path="/" exact component={Landing} />
+        <Route path="/cards/:id" exact component={EditCard} />
       </Switch>
     </BrowserRouter>
   );

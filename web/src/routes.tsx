@@ -10,10 +10,10 @@ function Routes() {
     <GlobalStyle />
       <Switch>
         <Route path="/" exact component={Landing} />
-        <Route path="/cards/:id" exact component={EditCard} />
+        <Route path="/card/:id" exact component={EditCard}/>
       </Switch>
     </BrowserRouter>
   );
-}
+};
 
 export default Routes;

@@ -33,9 +33,9 @@ function Landing() {
   const [cards, setCards] = useState<Card[]>([]);
   const [restCountries, setRestCountries] = useState<Countries[]>([]);
 
-  const [countryAndFlag, SetCountryAndFlag] = useState('');
-  const [location, SetLocation] = useState('');
-  const [meta, SetMeta] = useState('');
+  const [countryAndFlag, setCountryAndFlag] = useState('');
+  const [location, setLocation] = useState('');
+  const [meta, setMeta] = useState('');
 
   useEffect(() => {
     api.get('cards').then(response => {
@@ -75,6 +75,9 @@ function Landing() {
     await api.post('cards', data).then(response => {
       if (response.status === 201) {
       alert('Adicionado Com Sucesso');
+      setCountryAndFlag('');
+      setLocation('');
+      setMeta('');
       }
     }).catch(error => {
       alert(`${error.response.data.message}`);
@@ -93,7 +96,7 @@ function Landing() {
   }
 
   function handleEditCard(id: string) {
-      history.push(`/cards/${id}`);
+      history.push(`/card/${id}`);
     };
 
   return(
@@ -108,7 +111,7 @@ function Landing() {
           <select 
             name="country" 
             value={countryAndFlag} 
-            onChange={event => SetCountryAndFlag(event.target.value)}
+            onChange={event => setCountryAndFlag(event.target.value)}
           >
           <option value="" disabled >Selecione</option>
           {restCountries.map((countries) => ( 
@@ -125,7 +128,7 @@ function Landing() {
           <input 
             type="text" 
             value={location} 
-            onChange={event=> SetLocation(event.target.value)} 
+            onChange={event=> setLocation(event.target.value)} 
             placeholder="Digite o local que deseja conhecer" />
           </InputCountry>
           <InputMeta>
@@ -134,7 +137,7 @@ function Landing() {
             mask="99/9999" 
             type="text" 
             value={meta} 
-            onChange={event => SetMeta(event.target.value)} 
+            onChange={event => setMeta(event.target.value)} 
             placeholder="mês/ano" 
           />          
           </InputMeta>

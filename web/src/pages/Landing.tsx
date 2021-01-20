@@ -12,8 +12,6 @@ import Header from '../components/header';
 import { Main, Wrapper, Flag, Icons, Country, Data } from '../components/main';
 import { Section, Form, SelectCountry, InputCountry, InputMeta, ButtonAdd } from '../components/form';
 
-
-
 interface Card {
   id: string;
   country: string;
@@ -36,6 +34,7 @@ function Landing() {
   const [countryAndFlag, setCountryAndFlag] = useState('');
   const [location, setLocation] = useState('');
   const [meta, setMeta] = useState('');
+
 
   useEffect(() => {
     api.get('cards').then(response => {
@@ -72,23 +71,21 @@ function Landing() {
       meta,
     }
 
-    await api.post('cards', data).then(response => {
-      if (response.status === 201) {
-      alert('Adicionado Com Sucesso');
-      setCountryAndFlag('');
-      setLocation('');
-      setMeta('');
+  await api.post('cards', data).then(response => {
+    if (response.status === 201) {
+    alert('Adicionado Com Sucesso');
+    setCountryAndFlag('');
+    setLocation('');
+    setMeta(''); 
       }
     }).catch(error => {
       alert(`${error.response.data.message}`);
     });
-    
   }
 
   async function handleDeleteCard(id: string) {
     try {
       await api.delete(`cards/${id}`).then(res => console.log(res.data));
-
       setCards(cards.filter(card => card.id !== id));
     } catch (err) {
       alert('Erro ao deletar card, tente novamente.');
@@ -136,8 +133,7 @@ function Landing() {
           <InputMask 
             mask="99/9999" 
             type="text" 
-            value={meta} 
-            onChange={event => setMeta(event.target.value)} 
+            value={meta}
             placeholder="mês/ano" 
           />          
           </InputMeta>

@@ -1,7 +1,7 @@
 import { Controller, Get, Param, NotFoundException, Post, Body, BadRequestException, Patch, HttpCode, Delete } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { MongoRepository } from 'typeorm';
-import { ObjectID } from 'mongodb';
+import { ObjectID  } from 'mongodb';
 import { Card } from './card.entity';
 
 
@@ -27,7 +27,7 @@ export class CardsController {
 
     @Post()
     async createCard(@Body() card: Partial<Card>): Promise<Card> {
-      const checkLocation = await this.cardsRepository.find({ where: { country: card.country, location: card.location } });
+      const checkLocation = await this.cardsRepository.find({ where: { country: card.country, location: (card.location) } });
       if (checkLocation.length) {
         throw new BadRequestException(`Não é possivel cadastrar essa ${card.location} pois já existe`);
       }

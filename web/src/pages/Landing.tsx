@@ -134,6 +134,7 @@ function Landing() {
             mask="99/9999" 
             type="text" 
             value={meta}
+            onChange={event=> setMeta(event.target.value)}
             placeholder="mês/ano" 
           />          
           </InputMeta>

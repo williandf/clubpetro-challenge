@@ -13,7 +13,22 @@ export class CardsController {
   
     @Get()
     async getCards(): Promise<Card[]> {
-      return await this.cardsRepository.find({ order: { meta: "ASC" } });
+      const countries = await this.cardsRepository.find();
+      
+      const compare = ( a:Card, b:Card ) => {
+        if ( a.meta < b.meta ){
+          return -1;
+        }
+        if ( a.meta > b.meta ){
+          return 1;
+        }
+        return 0;
+      }
+
+      const sorted = countries.sort(compare);
+      console.log(sorted)
+
+      return countries
     }
 
     @Get(':id')

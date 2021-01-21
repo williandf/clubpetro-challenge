@@ -23,6 +23,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "format": "prettier --write \"src/**/*.ts\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -49,6 +50,7 @@
   "devDependencies": {
     "@types/react-input-mask": "^3.0.0",
     "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.7"
+    "@types/styled-components": "^5.1.7",
+    "prettier": "^2.2.1"
   }
 }

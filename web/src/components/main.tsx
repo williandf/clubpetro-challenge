@@ -19,18 +19,26 @@ function MainCountries() {
   const history = useHistory();
 
   const [cards, setCards] = useState<Card[]>([]);
-  
-  useEffect(() => {
-    api.get('cards').then(response => {
+
+  const getCountries = () => {
+    return api.get('cards').then(response => {
       setCards(response.data);
     })
+  }
+  
+  useEffect(() => {
+    getCountries()
   }, []);
 
   
   async function handleDeleteCard(id: string) {
     try {
-      await api.delete(`cards/${id}`).then(res => console.log(res.data));
-      setCards(cards.filter(card => card.id !== id));
+      await api.delete(`cards/${id}`).then(response => {
+        if (response.status === 204) {
+          alert('País deletado com sucesso');
+          getCountries()
+        }
+      });
     } catch (err) {
       alert('Erro ao deletar card, tente novamente.');
     }

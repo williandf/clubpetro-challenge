@@ -7,6 +7,9 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
+    @media (max-width: 570px) {
+      width:100%;
+    }
     max-width: 1440px;
     width: 90%;
     margin: 0 auto;

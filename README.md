@@ -39,7 +39,11 @@ No link abaixo você encontra o layout do projeto web. Lembrando que você preci
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [NestJS](https://nestjs.com/), [MongoDB](https://www.mongodb.com/try/download/community) e [React Native](https://reactnative.dev/).
+ - [Git](https://git-scm.com)
+ - [Node.js](https://nodejs.org/en/)
+ - [NestJS](https://nestjs.com/)
+ - [MongoDB](https://www.mongodb.com/try/download/community) 
+ - [React Native](https://reactnative.dev/).
 
 ## 🎲 Rodando nossa aplicação
 

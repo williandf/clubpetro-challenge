@@ -5,6 +5,9 @@ export const Section = styled.section`
   top: 38px;
   margin-bottom: 53px;
   background: #4f9419;
+  @media (max-width: 986px) {
+    height: 350px;
+  }
 `;
 
 export const Form = styled.form`
@@ -22,6 +25,9 @@ export const SelectCountry = styled.div`
     font-size: 16px;
     line-height: 18,75px;
     color: #FFF;
+  @media (max-width: 986px) {
+    margin-left: 34px;  
+  }
   }
   select {
     align-content: space-around;
@@ -34,6 +40,10 @@ export const SelectCountry = styled.div`
     padding-left: 15px;
     margin-left: 72px;
     border: none;
+  @media (max-width: 986px) {
+    margin-left: 34px;
+    margin-bottom: 10px; 
+  }
   }
 `;
 
@@ -56,6 +66,9 @@ export const InputCountry = styled.div`
     padding-left: 18px;
     margin-left: 34px;
     border: none;
+  @media (max-width: 986px) {
+    margin-bottom: 10px; 
+  }
   }
 `;
 
@@ -78,6 +91,9 @@ export const InputMeta = styled.div`
     padding-left: 18px;
     margin-left: 34px;
     border: none;
+  @media (max-width: 986px) {
+    margin-bottom: 10px; 
+  }
     }
 `;
 

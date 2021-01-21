@@ -53,7 +53,7 @@ function FormCountries() {
     alert('Adicionado Com Sucesso');
     setCountryAndFlag('');
     setLocation('');
-    setMeta(''); 
+    setMeta('');
       }
     }).catch(error => {
       alert(`${error.response.data.message}`);

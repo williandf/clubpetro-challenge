@@ -31,8 +31,12 @@ O Lugares que quero conhecer é uma aplicação que cadastra os lugares que quer
 
 ## 🔖 Layout
 
-Nos links abaixo você encontra o layout do projeto web. Lembrando que você precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
+No link abaixo você encontra o layout do projeto web. Lembrando que você precisa ter uma conta no [Figma](http://figma.com/) para acessá-lo.
 
 - [Layout Web](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer)
 
 ## Como Executar
+
+No link [BackEnd](/backend/README.md) você pode ver como executar o back-end da aplicação.
+
+No link [Web](/web/README.md) você pode ver como executar o front-end da aplicação.

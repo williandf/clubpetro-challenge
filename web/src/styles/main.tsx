@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 
 export const Main = styled.main`
-@media (max-width: 520px) {
-    justify-content: center;
-  }
   padding-left: 34px;
   padding-right: 34px;
   display:flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 `
 export const Wrapper = styled.div`
-  
   width: 250px;
   height: 250px;
-  gap: 30px;
   margin-bottom: 33px;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

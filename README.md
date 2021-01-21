@@ -35,8 +35,18 @@ No link abaixo você encontra o layout do projeto web. Lembrando que você preci
 
 - [Layout Web](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer)
 
-## Como Executar
+### Pré-requisitos
 
-No link [BackEnd](/backend/README.md) você pode ver como executar o back-end da aplicação.
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [MongoDB](https://www.mongodb.com/try/download/community) e [React Native](https://reactnative.dev/).
+
+## 🎲 Rodando nossa aplicação
+
+```bash
+# Clone este repositório
+$ git clone git@github.com:williandf/clubpetro-challenge.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd clubpetro-challenge
 
 No link [Web](/web/README.md) você pode ver como executar o front-end da aplicação.

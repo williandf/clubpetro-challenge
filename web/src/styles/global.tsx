@@ -7,17 +7,23 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    @media (max-width: 570px) {
-      width:100%;
-    }
     max-width: 1440px;
     width: 90%;
     margin: 0 auto;
     color: #000;
     background: #FFF;
+    -webkit-font-smoothing: antialiased !important;
+  }
+  body html #root {
+    height: 100%;
   }
   body, input, button, textarea {
     font: 400 16px Roboto, sans-serif;
+  }
+  @media (max-width: 588px) { 
+    body {
+      width:100%;
+      }
   }
 `;
  

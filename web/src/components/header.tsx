@@ -1,13 +1,14 @@
-import styled from 'styled-components';
+import Container from "../styles/container";
 
+import ImgLogo from '../images/logo.svg';
 
-const Header = styled.header`
-  height: 82px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: #000;
-  & img{
-    padding-left: 53px
-  }
-`;
+function Header() {
+  return (
+    <Container>
+    <img src={ImgLogo} alt="Logo"/>
+    </Container>
+  );
+}
 
 export default Header;
+

@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import GlobalStyle from './components/global';
+import GlobalStyle from './styles/global';
 import Landing from './pages/Landing';
 import EditCard from './pages/EditCard';
 

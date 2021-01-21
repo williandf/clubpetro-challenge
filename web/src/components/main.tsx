@@ -1,81 +1,68 @@
-import styled from 'styled-components';
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import EditIcon from "@material-ui/icons/Edit";
+import ClearIcon from "@material-ui/icons/Clear";
 
-export const Main = styled.main`
-@media (max-width: 520px) {
-    justify-content: center;
-  }
-  padding-left: 34px;
-  padding-right: 34px;
-  display:flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-`
-export const Wrapper = styled.div`
+import api from "../services/api";
+
+import { Main, Wrapper, Icons, Flag, Country, Data } from "../styles/main";
+
+interface Card {
+  id: string;
+  country: string;
+  urlFlag: string;
+  location: string;
+  meta: string;
+}
+
+function MainCountries() {
+  const history = useHistory();
+
+  const [cards, setCards] = useState<Card[]>([]);
   
-  width: 250px;
-  height: 250px;
-  gap: 30px;
-  margin-bottom: 33px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  position: relative;
+  useEffect(() => {
+    api.get('cards').then(response => {
+      setCards(response.data);
+    })
+  }, []);
 
-`
-export const Icons = styled.div`
-  & svg.editIcon {
-    display: flex;
-    position: absolute;
-    width: 18px;
-    height: 19px;
-    margin-left: 181px;
-    margin-top: 17px;
-    color: #868686;
-    cursor: pointer;
+  
+  async function handleDeleteCard(id: string) {
+    try {
+      await api.delete(`cards/${id}`).then(res => console.log(res.data));
+      setCards(cards.filter(card => card.id !== id));
+    } catch (err) {
+      alert('Erro ao deletar card, tente novamente.');
+    }
   }
-  & svg.clearIcon {
-    display: flex;
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    margin-left: 215px;
-    margin-top: 17px;
-    color: #868686;
-    cursor: pointer;
-  }
-`
 
-export const Flag = styled.div`
-  & img {
-    margin-top: 26px;
-    margin-left: 14px;
-    width: 56px;
-    height: 34px;
-  }
-`
+  function handleEditCard(id: string) {
+      history.push(`/card/${id}`);
+    };
 
-export const Country = styled.div`
-  & p {
-    margin-top: 16px;
-    margin-left: 8px;
-    margin-right: 10px;
-    padding-left: 6px;
-    padding-bottom: 11px;
-    font-size: 16px;
-    line-height: 18.75px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: #4F9419;
-    border-bottom: 1px solid #ABABAB;
-  }
-`
+  return (
+    <Main>
+         {cards.map((card) => {
+                  return (
+          <Wrapper key={card.id}>
+            <Icons>
+              <EditIcon className="editIcon" onClick={() => handleEditCard(card.id)} type="button"/>
+              <ClearIcon className="clearIcon" onClick={() => handleDeleteCard(card.id)} type='button'/>
+            </Icons>
+                <Flag>
+                  <img src={card.urlFlag} alt={card.country}/>
+                </Flag>
+                <Country>
+                  <p>{[card.country]}</p>
+                </Country>
+                <Data>
+                  <p className="data-location">Local: {[card.location]}</p>
+                  <p>Meta: {[card.meta]}</p>
+                </Data>
+          </Wrapper>
+          )})}
+        </Main>
+  );
+}
 
-export const Data = styled.div`
-  & p.data-location{
-    margin-top: 43px;
-    margin-left: 26px;
-  }
-  & p {
-    margin-top: 11px;
-    margin-left: 26px;
-  }
-`
+export default MainCountries;

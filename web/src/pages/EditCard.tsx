@@ -2,7 +2,7 @@ import React, { FormEvent, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { Section, Form, InputCountry, InputMeta, ButtonAdd } from '../components/form';
+import { Section, Form, InputCountry, InputMeta, ButtonAdd } from '../styles/form';
 import api from '../services/api';
 
 interface RouteParams {

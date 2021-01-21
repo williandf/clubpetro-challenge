@@ -42,11 +42,43 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ## 🎲 Rodando nossa aplicação
 
-```bash
+
 # Clone este repositório
+```bash
 $ git clone git@github.com:williandf/clubpetro-challenge.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd clubpetro-challenge
+```
 
-No link [Web](/web/README.md) você pode ver como executar o front-end da aplicação.
+## Rodando o Back End da Apliação
+```bash
+# Acesse a pasta do back-end no terminal/cmd
+$ cd backend
+
+# Instale as dependências
+$ npm install
+$ yarn add
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
+$ yarn start
+
+# Caso prefira execute a aplicação em watch mode
+$ npm run start:dev
+$ yarn start:dev
+```
+
+## Rodando o FrontEnd da Apliação
+```bash
+# Acesse a pasta do back-end no terminal/cmd
+$ cd web
+
+# Instale as dependências
+$ npm install
+$ yarn add
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
+$ yarn start
+```

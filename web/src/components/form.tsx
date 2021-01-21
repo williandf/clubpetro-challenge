@@ -18,7 +18,6 @@ function FormCountries() {
   const [location, setLocation] = useState('');
   const [meta, setMeta] = useState('');
 
-
   useEffect(() => {
     apiRestCountries.get('all?fields=translations;flag').then(response => {
 

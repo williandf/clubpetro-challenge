@@ -1,7 +1,7 @@
 import { FormEvent, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
 
-import { Section, Form, SelectCountry, InputCountry, InputMeta, ButtonAdd } from '../styles/form';
+import { Section, Form, SelectCountry, InputCity, InputMeta, ButtonAdd } from '../styles/form';
 
 import api from '../services/api';
 
@@ -79,14 +79,14 @@ function FormCountries() {
             ))}
           </select>
           </SelectCountry>
-          <InputCountry>
+          <InputCity>
           <label>Local:</label>
           <input 
             type="text" 
             value={location} 
             onChange={event=> setLocation(event.target.value)} 
             placeholder="Digite o local que deseja conhecer" />
-          </InputCountry>
+          </InputCity>
           <InputMeta>
           <label>Meta:</label>
           <InputMask 

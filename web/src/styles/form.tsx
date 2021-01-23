@@ -2,10 +2,9 @@ import styled from 'styled-components';
 
 export const Section = styled.section`
   height: 247px;
-  top: 38px;
   margin-bottom: 53px;
   background: #4f9419;
-  @media (max-width: 986px) {
+  @media (max-width: 1550px) {
     height: 350px;
   }
 `;
@@ -14,7 +13,11 @@ export const Form = styled.form`
   padding-top: 60px;
   align-items: flex-end;
   display:flex;
-  flex-wrap: wrap;
+  @media (max-width: 1550px) {
+    padding-top: 40px;
+    display: grid;
+    justify-content: center;
+  }
 `;
 
 export const SelectCountry = styled.div`
@@ -25,7 +28,7 @@ export const SelectCountry = styled.div`
     font-size: 16px;
     line-height: 18,75px;
     color: #FFF;
-  @media (max-width: 986px) {
+  @media (max-width: 1550px) {
     margin-left: 34px;  
   }
   }
@@ -40,14 +43,14 @@ export const SelectCountry = styled.div`
     padding-left: 15px;
     margin-left: 72px;
     border: none;
-  @media (max-width: 986px) {
+  @media (max-width: 1550px) {
     margin-left: 34px;
-    margin-bottom: 10px; 
+    margin-bottom: 15px; 
   }
   }
 `;
 
-export const InputCountry = styled.div`
+export const InputCity = styled.div`
   label {
     display:flex;
     margin-left: 34px;
@@ -66,8 +69,9 @@ export const InputCountry = styled.div`
     padding-left: 18px;
     margin-left: 34px;
     border: none;
-  @media (max-width: 986px) {
-    margin-bottom: 10px; 
+  @media (max-width: 1550px) {
+    margin-bottom: 15px; 
+    width: 303px;
   }
   }
 `;
@@ -91,8 +95,9 @@ export const InputMeta = styled.div`
     padding-left: 18px;
     margin-left: 34px;
     border: none;
-  @media (max-width: 986px) {
-    margin-bottom: 10px; 
+  @media (max-width: 1550px) {
+    margin-bottom: 15px;
+    width: 303px;
   }
     }
 `;
@@ -110,4 +115,7 @@ export const ButtonAdd = styled.button`
     line-height: 21px;
     cursor: pointer;
     border: none;
+    @media (max-width: 1550px) {
+    width: 303px;
+  }
 `;

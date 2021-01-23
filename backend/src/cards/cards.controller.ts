@@ -12,7 +12,7 @@ export class CardsController {
   
     @Get()
     async getCards(): Promise<Card[]> {
-      const countries = await this.cardsRepository.find();
+      const countries = await this.cardsRepository.find({ order: { country: "ASC" } });
       
       return countries.sort((a: any,b: any) => {
         a = a.meta.split('/');

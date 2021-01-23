@@ -4,14 +4,6 @@ import { MongoRepository } from 'typeorm';
 import { ObjectID  } from 'mongodb';
 import { Card } from './card.entity';
 
-type Country = {
-  id: string;
-  country: string;
-  urlFlag: string;
-  location: string;
-  meta: string;
-}
-
 @Controller('cards')
 export class CardsController {
   constructor(

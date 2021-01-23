@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import ClearIcon from "@material-ui/icons/Clear";
@@ -15,21 +14,13 @@ interface Card {
   meta: string;
 }
 
-function MainCountries() {
+interface Props {
+  cards: Card[];
+  getCountries: () => Promise<void>;
+}
+
+function MainCountries({ cards, getCountries }:Props) {
   const history = useHistory();
-
-  const [cards, setCards] = useState<Card[]>([]);
-
-  const getCountries = () => {
-    return api.get('cards').then(response => {
-      setCards(response.data);
-    })
-  }
-  
-  useEffect(() => {
-    getCountries()
-  }, []);
-
   
   async function handleDeleteCard(id: string) {
     try {

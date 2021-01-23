@@ -12,7 +12,11 @@ interface Countries {
   urlFlag: string;
 }
 
-function FormCountries() {
+interface Props {
+  getCountries: () => Promise<void>;
+}
+
+function FormCountries({ getCountries }:Props) {
   const [restCountries, setRestCountries] = useState<Countries[]>([]);
   const [countryAndFlag, setCountryAndFlag] = useState('');
   const [location, setLocation] = useState('');
@@ -53,6 +57,7 @@ function FormCountries() {
     setCountryAndFlag('');
     setLocation('');
     setMeta('');
+    getCountries();
       }
     }).catch(error => {
       alert(`${error.response.data.message}`);

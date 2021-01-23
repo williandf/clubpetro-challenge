@@ -54,10 +54,10 @@ async function handleSubmit(event: FormEvent) {
   return (
     <Section>
         <Form onSubmit={handleSubmit}>
-          <InputCity>
+          <InputMeta>
           <label>País:</label>
           <input type="text" disabled placeholder={country?.country} />
-          </InputCity>
+          </InputMeta>
           <InputCity>
           <label>Local:</label>
           <input 

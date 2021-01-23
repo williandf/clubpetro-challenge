@@ -35,10 +35,10 @@ export class CardsController {
     async createCard(@Body() card: Partial<Card>): Promise<Card> {
       const checkLocation = await this.cardsRepository.find({ where: { country: card.country, location: (card.location) } });
       if (checkLocation.length) {
-        throw new BadRequestException(`Não é possivel cadastrar essa ${card.location} pois já existe`);
+        throw new BadRequestException(`Não é possivel cadastrar ${card.location} pois já existe ${card.country}`);
       }
       if (!card || !card.country || !card.urlFlag || !card.location || !card.meta) {
-        throw new BadRequestException(`A card must be created only country, urlFlag, location and meta date`);
+        throw new BadRequestException('Um país deve ser criado apenas com país, urlFlag, local e meta data');
       }
       return await this.cardsRepository.save(new Card(card));
     }

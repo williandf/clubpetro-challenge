@@ -4,6 +4,13 @@ import { MongoRepository } from 'typeorm';
 import { ObjectID  } from 'mongodb';
 import { Card } from './card.entity';
 
+type Country = {
+  id: string;
+  country: string;
+  urlFlag: string;
+  location: string;
+  meta: string;
+}
 
 @Controller('cards')
 export class CardsController {
@@ -15,18 +22,13 @@ export class CardsController {
     async getCards(): Promise<Card[]> {
       const countries = await this.cardsRepository.find();
       
-      const compare = ( a: Card, b: Card ) => {
-        if ( a.meta < b.meta ){
-          return -1;
-        }
-        if ( a.meta > b.meta ){
-          return 1;
-        }
-        return 0;
-      }
-
-      return countries.sort(compare);
+      return countries.sort((a: any,b: any) => {
+        a = a.meta.split('/');
+        b = b.meta.split('/');
+        return new Date(a[1], a[0], 1).getTime() - new Date(b[1], b[0], 1).getTime()
+      });
     }
+
 
     @Get(':id')
     async getCard(@Param('id') id): Promise<Card> {

@@ -23,7 +23,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "format": "prettier --write \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.ts\"",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

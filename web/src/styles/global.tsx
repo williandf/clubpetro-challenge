@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     width: 90%;
     margin: 0 auto;
     color: #000;
-    background: #FFF;
+    background: #fff;
     -webkit-font-smoothing: antialiased !important;
   }
   body html #root {
@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   @media (max-width: 588px) { 
     body {
       width:100%;
-      }
+    }
   }
 `;
  

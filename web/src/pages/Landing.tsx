@@ -29,8 +29,8 @@ function Landing() {
   return(
     <div id="page-landing">
       <HeaderComponent />
-      <FormComponent getCountries={getCountries}/>
-      <MainComponent cards={cards} getCountries={getCountries}/>                        
+      <FormComponent getCountries={getCountries} />
+      <MainComponent cards={cards} getCountries={getCountries} />                        
     </div>
   );
 }

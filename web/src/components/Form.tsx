@@ -41,8 +41,8 @@ function FormCountries({ getCountries }:Props) {
     event.preventDefault();
 
     const obj = JSON.parse(countryAndFlag);
-    const country = obj.country;
-    const urlFlag = obj.urlFlag;
+    const { country } = obj.country;
+    const { urlFlag } = obj.urlFlag;
 
     const data = {
       country,
@@ -66,45 +66,50 @@ function FormCountries({ getCountries }:Props) {
 
   return (
     <Section>
-        <Form onSubmit={handleSubmit}>
-          <SelectCountry>
+      <Form onSubmit={handleSubmit}>
+        <SelectCountry>
           <label>País:</label>
           <select 
             name="country" 
             value={countryAndFlag} 
             onChange={event => setCountryAndFlag(event.target.value)}
           >
-          <option value="" disabled >Selecione</option>
-          {restCountries.map((countries) => ( 
-            <option 
-              key={countries.country} 
-              value={JSON.stringify({country: countries.country, urlFlag: countries.urlFlag})}>
-                {countries.country}
-            </option>
-            ))}
+          <option 
+            value="" 
+            disabled >
+            Selecione
+          </option>
+        {restCountries.map((countries) => ( 
+          <option 
+            key={countries.country} 
+            value={JSON.stringify({country: countries.country, urlFlag: countries.urlFlag})}>
+            {countries.country}
+          </option>
+        ))}
           </select>
-          </SelectCountry>
-          <InputCity>
+        </SelectCountry>
+        <InputCity>
           <label>Local:</label>
           <input 
             type="text" 
             value={location} 
             onChange={event=> setLocation(event.target.value)} 
-            placeholder="Digite o local que deseja conhecer" />
-          </InputCity>
-          <InputMeta>
+            placeholder="Digite o local que deseja conhecer" 
+          />
+        </InputCity>
+        <InputMeta>
           <label>Meta:</label>
-          <InputMask 
-            mask="99/9999" 
-            type="text" 
-            value={meta}
-            onChange={event=> setMeta(event.target.value)}
-            placeholder="mês/ano" 
-          />          
-          </InputMeta>
-          <ButtonAdd>Adicionar</ButtonAdd>
-        </Form>
-      </Section>
+        <InputMask 
+          mask="99/9999" 
+          type="text" 
+          value={meta}
+          onChange={event=> setMeta(event.target.value)}
+          placeholder="mês/ano" 
+        />          
+        </InputMeta>
+        <ButtonAdd>Adicionar</ButtonAdd>
+      </Form>
+    </Section>
   );
 }
 

@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Main = styled.main`
   padding-left: 34px;
   padding-right: 34px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-`
+`;
+
 export const Wrapper = styled.div`
   width: 250px;
   height: 250px;
@@ -16,10 +17,10 @@ export const Wrapper = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   position: relative;
+`;
 
-`
 export const Icons = styled.div`
-  & svg.editIcon {
+  svg.editIcon {
     display: flex;
     position: absolute;
     width: 18px;
@@ -29,7 +30,7 @@ export const Icons = styled.div`
     color: #868686;
     cursor: pointer;
   }
-  & svg.clearIcon {
+  svg.clearIcon {
     display: flex;
     position: absolute;
     width: 24px;
@@ -39,19 +40,19 @@ export const Icons = styled.div`
     color: #868686;
     cursor: pointer;
   }
-`
+`;
 
 export const Flag = styled.div`
-  & img {
+  img {
     margin-top: 26px;
     margin-left: 14px;
     width: 56px;
     height: 34px;
   }
-`
+`;
 
 export const Country = styled.div`
-  & p {
+  p {
     margin-top: 16px;
     margin-left: 8px;
     margin-right: 10px;
@@ -62,17 +63,17 @@ export const Country = styled.div`
     font-weight: 700;
     text-transform: uppercase;
     color: #4F9419;
-    border-bottom: 1px solid #ABABAB;
+    border-bottom: 1px solid #ababab;
   }
-`
+`;
 
 export const Data = styled.div`
-  & p.data-location{
+  p.data-location{
     margin-top: 43px;
     margin-left: 26px;
   }
-  & p {
+  p {
     margin-top: 11px;
     margin-left: 26px;
   }
-`
+`;

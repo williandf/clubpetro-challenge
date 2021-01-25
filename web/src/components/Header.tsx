@@ -5,7 +5,7 @@ import ImgLogo from '../images/logo.svg';
 function Header() {
   return (
     <Container>
-    <img src={ImgLogo} alt="Logo"/>
+      <img src={ImgLogo} alt="Logo" />
     </Container>
   );
 }

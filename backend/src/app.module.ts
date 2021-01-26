@@ -3,12 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CardsModule } from './cards/cards.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
     CardsModule,
-    ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mongodb',
       database: 'db',

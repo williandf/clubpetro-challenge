@@ -8,7 +8,7 @@
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#pré-requisitos">Pré-Requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-rodando-nossa-aplicação">Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-google-cloud-platform">Deploy</a>
+  <a href="#google-cloud-platform">Deploy</a>
 </p>
 
 <br>
@@ -40,16 +40,17 @@ No link abaixo você encontra o layout do projeto web. Lembrando que você preci
 ## Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
- - [Git](https://git-scm.com)
- - [Node.js](https://nodejs.org/en/)
- - [NestJS](https://nestjs.com/)
- - [MongoDB](https://www.mongodb.com/try/download/community) 
- - [React Native](https://reactnative.dev/).
+
+- [Git](https://git-scm.com)
+- [Node.js](https://nodejs.org/en/)
+- [NestJS](https://nestjs.com/)
+- [MongoDB](https://www.mongodb.com/try/download/community)
+- [React Native](https://reactnative.dev/).
 
 ## 🎲 Rodando nossa aplicação
 
-
 # Clone este repositório
+
 ```bash
 $ git clone git@github.com:williandf/clubpetro-challenge.git
 
@@ -58,6 +59,7 @@ $ cd clubpetro-challenge
 ```
 
 ## Rodando o Back End da Apliação
+
 ```bash
 # Acesse a pasta do back-end no terminal/cmd
 $ cd backend
@@ -76,6 +78,7 @@ $ yarn start:dev
 ```
 
 ## Rodando o FrontEnd da Apliação
+
 ```bash
 # Acesse a pasta do back-end no terminal/cmd
 $ cd web

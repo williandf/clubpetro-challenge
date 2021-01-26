@@ -1,29 +1,34 @@
-version: '3.7'
+version: '3'
 services:
-  server:
-    container_name: clubpetro-backend-app
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - .:/app
-      - /app/node_modules
-    ports:
-      - '3333:3333'
-    environment:
-      - NODE_ENV=development
-      - DB_URL=mongodb://db_mongo
+  back_app:
     depends_on:
       - db
+    restart: always
+    build: .
+    ports:
+      - '8080:3333'
+    environment:
+      - DB_URL=mongodb://db_mongo
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     links:
       - db
+    networks:
+      - webnet
 
   db:
     image: mongo
     container_name: db_mongo
     volumes:
       - mongodata:/data/db
+    networks:
+      - webnet
     ports:
-      - '27017:27017'
-    volumes:
-      - ./data/db:/data/db
+      - '27018:27017'
+
+volumes:
+  mongodata:
+
+networks:
+  webnet:

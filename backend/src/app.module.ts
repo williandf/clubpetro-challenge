@@ -1,18 +1,23 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CardsController } from './cards/cards.controller';
+import { CardsModule } from './cards/cards.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-import { Card } from './cards/card.entity';
 
 @Module({
   imports: [
+    CardsModule,
     ConfigModule.forRoot(),
-    TypeOrmModule.forRoot(),
-    TypeOrmModule.forFeature([Card]),
+    TypeOrmModule.forRoot({
+      type: 'mongodb',
+      database: 'db',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      synchronize: true,
+      useUnifiedTopology: true,
+    }),
   ],
-  controllers: [AppController, CardsController],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

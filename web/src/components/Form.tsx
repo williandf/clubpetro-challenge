@@ -41,8 +41,8 @@ function FormCountries({ getCountries }:Props) {
     event.preventDefault();
 
     const obj = JSON.parse(countryAndFlag);
-    const { country } = obj.country;
-    const { urlFlag } = obj.urlFlag;
+    const country = obj.country;
+    const urlFlag = obj.urlFlag;
 
     const data = {
       country,

@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "3001:3000"
+      - "3000:3001"
     working_dir: /web/src/app
     volumes:
       - ./web:/web/src/app
@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     ports:
-      - "3334:3333"
+      - "3333:3334"
     volumes:
       - ./backend:/backend
       - /backend/node_modules
@@ -34,9 +34,9 @@ services:
     restart: always
     container_name: mongodb
     volumes:
-      - ./data:/data/db
+      - ./data:/data/mongo
     ports:
-      - 27018:27017
+      - 27017:27018
     command: mongod --noauth
     networks:
       - webappnetwork

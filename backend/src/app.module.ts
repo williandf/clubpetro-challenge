@@ -9,7 +9,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     CardsModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      database: 'db',
+      url: 'mongodb://localhost:27017/db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
       useUnifiedTopology: true,

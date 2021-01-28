@@ -1,12 +1,20 @@
 # Imagem de Origem
-FROM node:14-alpine
-# Diretório de trabalho(é onde a aplicação ficará dentro do container).
-WORKDIR /web
-# Adicionando `/app/node_modules/.bin` para o $PATH
-ENV PATH /web/node_modules/.bin:$PATH
-# Instalando dependências da aplicação e armazenando em cache.
-COPY package.json /app/package.json
-RUN npm install --silent
-RUN npm install react-scripts@3.3.1 -g --silent
-# Inicializa a aplicação
-CMD ["npm", "start"]
+FROM node:14.15.4-alpine3.11
+# Set the working directory to /api
+RUN apk add --no-cache bash
+
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+COPY --chown=node:node . .
+
+USER node
+
+CMD [ "npm", "run", "start" ]

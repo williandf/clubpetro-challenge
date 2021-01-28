@@ -1,16 +1,13 @@
 version: "3.7"
 services:
   client:
-    build:
-      context: ./web
-      dockerfile: Dockerfile
+    build: ./web
+    container_name: frontend-clubpetro
     restart: always
     ports:
       - "3000:3000"
-    working_dir: /web/src/app
     volumes:
-      - ./web:/web/src/app
-    entrypoint: ["npm", "start"]
+      - ./web:/home/node/app
     links:
       - api
     networks:

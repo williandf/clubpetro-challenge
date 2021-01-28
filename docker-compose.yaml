@@ -30,7 +30,7 @@ services:
     restart: always
     container_name: mongodb
     volumes:
-      - ./.docker/dbdata:/data/db
+      - ./backend/.docker/dbdata:/data/db
     ports:
       - 27017:27017
     command: mongod --noauth

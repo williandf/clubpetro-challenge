@@ -1,7 +1,8 @@
-version: "3.7"
+version: "3"
 services:
   client:
     build: ./web
+    entrypoint: ./.docker/entrypointfrontend.sh
     container_name: frontend-clubpetro
     restart: always
     ports:
@@ -14,6 +15,7 @@ services:
       - webappnetwork
   api:
     build: ./backend
+    entrypoint: ./.docker/entrypoint.sh
     container_name: backend-clubpetro
     ports:
       - "3333:3333"
@@ -28,7 +30,7 @@ services:
     restart: always
     container_name: mongodb
     volumes:
-      - ./data:/data/db
+      - ./.docker/dbdata:/data/db
     ports:
       - 27017:27017
     command: mongod --noauth

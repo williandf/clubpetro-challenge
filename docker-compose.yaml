@@ -2,7 +2,7 @@ version: "3"
 services:
   client:
     build: ./web
-    entrypoint: ./.docker/entrypointfrontend.sh
+    entrypoint: ./web/.docker/entrypointfrontend.sh
     container_name: frontend-clubpetro
     restart: always
     ports:
@@ -15,7 +15,7 @@ services:
       - webappnetwork
   api:
     build: ./backend
-    entrypoint: ./.docker/entrypoint.sh
+    entrypoint: ./backend/.docker/entrypointbackend.sh
     container_name: backend-clubpetro
     ports:
       - "3333:3333"

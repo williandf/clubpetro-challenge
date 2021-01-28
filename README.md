@@ -86,15 +86,12 @@ $ cd backend
 
 # Instale as dependências
 $ npm install
-$ yarn add
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run start
-$ yarn start
 
 # Caso prefira execute a aplicação em watch mode
 $ npm run start:dev
-$ yarn start:dev
 ```
 
 ## Rodando o FrontEnd da Apliação
@@ -105,11 +102,9 @@ $ cd web
 
 # Instale as dependências
 $ npm install
-$ yarn add
 
 # Execute a aplicação em modo de desenvolvimento
 $ npm run start
-$ yarn start
 ```
 
 ## Google Cloud Platform

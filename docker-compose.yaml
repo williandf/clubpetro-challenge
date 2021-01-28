@@ -16,15 +16,12 @@ services:
     networks:
       - webappnetwork
   api:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    restart: always
+    build: ./backend
+    container_name: backend-clubpetro
     ports:
       - "3333:3333"
     volumes:
       - ./backend:/home/node/app
-      - /home/node/app/node_modules
     depends_on:
       - mongodb
     networks:

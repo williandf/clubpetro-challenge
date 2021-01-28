@@ -7,7 +7,8 @@
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#pré-requisitos">Pré-Requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-rodando-nossa-aplicação">Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-rodando-nossa-aplicação-no-docker">Como Executar Docker</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-rodando-nossa-aplicação-local">Como Executar Local</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#google-cloud-platform">Deploy</a>
 </p>
 
@@ -42,12 +43,27 @@ No link abaixo você encontra o layout do projeto web. Lembrando que você preci
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 
 - [Git](https://git-scm.com)
+- [Docker](http://docker.com)
 - [Node.js](https://nodejs.org/en/)
 - [NestJS](https://nestjs.com/)
 - [MongoDB](https://www.mongodb.com/try/download/community)
-- [React Native](https://reactnative.dev/).
+- [React Native](https://reactnative.dev/)
 
-## 🎲 Rodando nossa aplicação
+## 🎲 Rodando nossa aplicação no docker
+
+# Clone este repositório
+
+```bash
+$ git clone git@github.com:williandf/clubpetro-challenge.git
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd clubpetro-challenge
+
+#Rode o docker
+docker-compose up -d --build
+```
+
+## 🎲 Rodando nossa aplicação local
 
 # Clone este repositório
 
@@ -61,6 +77,10 @@ $ cd clubpetro-challenge
 ## Rodando o Back End da Apliação
 
 ```bash
+# Altere a conexão para o banco de dados local
+/backend/src/app.module.ts
+mongodb://127.0.0.1:27017/db_clubpetro
+
 # Acesse a pasta do back-end no terminal/cmd
 $ cd backend
 

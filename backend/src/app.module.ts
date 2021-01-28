@@ -10,7 +10,7 @@ import { Card } from './cards/cards.entity';
     CardsModule,
     TypeOrmModule.forRoot({
       type: 'mongodb',
-      url: 'mongodb://mongo:27017/db_clubpetro',
+      url: 'mongodb://mongodb:27017/db_clubpetro',
       entities: [Card],
       synchronize: true,
       useUnifiedTopology: true,

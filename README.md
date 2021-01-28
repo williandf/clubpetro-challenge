@@ -48,6 +48,9 @@ $ cd clubpetro-challenge
 
 #Rode o docker
 docker-compose up
+
+#Aguarde subir a aplicação
+Acesse pelo link http://localhost:3000
 ```
 
 ## Google Cloud Platform

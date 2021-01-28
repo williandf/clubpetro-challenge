@@ -4,6 +4,8 @@ RUN apk add --no-cache bash
 
 RUN npm i -g @nestjs/cli@7.4.1
 
+RUN chmod +x .docker/entrypoint.sh
+
 USER node
 
 WORKDIR /home/node/app

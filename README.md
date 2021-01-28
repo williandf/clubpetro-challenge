@@ -6,7 +6,8 @@
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-rodando-nossa-aplicação-no-docker">Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pré-requisitos">Pré-Requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-rodando-a-aplicação">Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#google-cloud-platform">Deploy</a>
 </p>
 
@@ -25,6 +26,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [MongoDB](https://www.mongodb.com/)
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Docker](https://www.docker.com/)
 
 ## 💻 Projeto
 
@@ -36,15 +38,19 @@ No link abaixo você encontra o layout do projeto web. Lembrando que você preci
 
 - [Layout Web](https://www.figma.com/file/IC0xt3K3X21rLEfLRQ3mpl/Lugares-que-quero-conhecer)
 
+## Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+
+- [Git](https://git-scm.com)
+- [Docker](http://docker.com)
+
 ## 🎲 Rodando a aplicação
 
-# Clone este repositório
-
 ```bash
-$ git clone git@github.com:williandf/clubpetro-challenge.git
+#Clone o repositório
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd clubpetro-challenge
+# Acesse a pasta do projeto
 
 #Rode o docker
 docker-compose up

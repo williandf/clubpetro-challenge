@@ -7,8 +7,7 @@
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-layout">Layout</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#pré-requisitos">Pré-Requisitos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-rodando-a-aplicação">Como Executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#google-cloud-platform">Deploy</a>
+  <a href="#-rodando-a-aplicação">Como Executar</a>
 </p>
 
 <br>
@@ -59,6 +58,3 @@ docker-compose up
 Acesse pelo link http://localhost:3000
 ```
 
-## Google Cloud Platform
-
-Acesso ao deploy da aplicação clicando [aqui](https://frontend-clubpetrp.rj.r.appspot.com/)

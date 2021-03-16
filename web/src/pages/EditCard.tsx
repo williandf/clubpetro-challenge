@@ -2,7 +2,7 @@ import { FormEvent, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
 import { useHistory, useParams } from 'react-router-dom';
 
-import { Section, Form, InputCity, InputMeta, ButtonAdd } from '../styles/form';
+import * as S from '../components/Form/styles';
 import api from '../services/api';
 
 interface RouteParams {
@@ -52,17 +52,17 @@ async function handleSubmit(event: FormEvent) {
 }
 
   return (
-    <Section>
-      <Form onSubmit={handleSubmit}>
-        <InputMeta>
+    <S.Section>
+      <S.Form onSubmit={handleSubmit}>
+        <S.InputMeta>
           <label>País:</label>
           <input 
             type="text" 
             disabled 
             placeholder={country?.country} 
           />
-        </InputMeta>
-        <InputCity>
+        </S.InputMeta>
+        <S.InputCity>
           <label>Local:</label>
           <input 
             type="text" 
@@ -70,8 +70,8 @@ async function handleSubmit(event: FormEvent) {
             onChange={event=> setLocation(event.target.value)}
             placeholder={country?.location} 
           />
-        </InputCity>
-        <InputMeta>
+        </S.InputCity>
+        <S.InputMeta>
           <label>Meta:</label>
         <InputMask 
           mask="99/9999" 
@@ -80,10 +80,10 @@ async function handleSubmit(event: FormEvent) {
           value={meta} 
           onChange={event => setMeta(event.target.value)} 
         />          
-        </InputMeta>
-        <ButtonAdd>Salvar</ButtonAdd>
-      </Form>
-    </Section>
+        </S.InputMeta>
+        <S.ButtonAdd>Salvar</S.ButtonAdd>
+      </S.Form>
+    </S.Section>
   );
 };
 

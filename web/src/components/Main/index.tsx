@@ -2,9 +2,9 @@ import { useHistory } from "react-router-dom";
 import EditIcon from "@material-ui/icons/Edit";
 import ClearIcon from "@material-ui/icons/Clear";
 
-import api from "../services/api";
+import api from "../../services/api";
 
-import { Main, Wrapper, Icons, Flag, Country, Data } from "../styles/main";
+import * as S from "./styles";
 
 interface Card {
   id: string;
@@ -40,27 +40,27 @@ function MainCountries({ cards, getCountries }:Props) {
     };
 
   return (
-    <Main>
+    <S.Main>
          {cards.map((card) => {
                   return (
-          <Wrapper key={card.id}>
-            <Icons>
+          <S.Wrapper key={card.id}>
+            <S.Icons>
               <EditIcon className="editIcon" onClick={() => handleEditCard(card.id)} type="button"/>
               <ClearIcon className="clearIcon" onClick={() => handleDeleteCard(card.id)} type='button'/>
-            </Icons>
-                <Flag>
+            </S.Icons>
+                <S.Flag>
                   <img src={card.urlFlag} alt={card.country}/>
-                </Flag>
-                <Country>
+                </S.Flag>
+                <S.Country>
                   <p>{[card.country]}</p>
-                </Country>
-                <Data>
+                </S.Country>
+                <S.Data>
                   <p className="data-location">Local: {[card.location]}</p>
                   <p>Meta: {[card.meta]}</p>
-                </Data>
-          </Wrapper>
+                </S.Data>
+          </S.Wrapper>
           )})}
-        </Main>
+        </S.Main>
   );
 }
 

@@ -1,11 +1,11 @@
 import { FormEvent, useEffect, useState } from 'react';
 import InputMask from 'react-input-mask';
 
-import { Section, Form, SelectCountry, InputCity, InputMeta, ButtonAdd } from '../styles/form';
+import * as S from './styles';
 
-import api from '../services/api';
+import api from '../../services/api';
 
-import apiRestCountries from '../services/apiRestCountries';
+import apiRestCountries from '../../services/apiRestCountries';
 
 interface Countries {
   country: string;
@@ -65,9 +65,9 @@ function FormCountries({ getCountries }:Props) {
   }
 
   return (
-    <Section>
-      <Form onSubmit={handleSubmit}>
-        <SelectCountry>
+    <S.Section>
+      <S.Form onSubmit={handleSubmit}>
+        <S.SelectCountry>
           <label>País:</label>
           <select 
             name="country" 
@@ -87,8 +87,8 @@ function FormCountries({ getCountries }:Props) {
           </option>
         ))}
           </select>
-        </SelectCountry>
-        <InputCity>
+        </S.SelectCountry>
+        <S.InputCity>
           <label>Local:</label>
           <input 
             type="text" 
@@ -96,8 +96,8 @@ function FormCountries({ getCountries }:Props) {
             onChange={event=> setLocation(event.target.value)} 
             placeholder="Digite o local que deseja conhecer" 
           />
-        </InputCity>
-        <InputMeta>
+        </S.InputCity>
+        <S.InputMeta>
           <label>Meta:</label>
         <InputMask 
           mask="99/9999" 
@@ -106,10 +106,10 @@ function FormCountries({ getCountries }:Props) {
           onChange={event=> setMeta(event.target.value)}
           placeholder="mês/ano" 
         />          
-        </InputMeta>
-        <ButtonAdd>Adicionar</ButtonAdd>
-      </Form>
-    </Section>
+        </S.InputMeta>
+        <S.ButtonAdd>Adicionar</S.ButtonAdd>
+      </S.Form>
+    </S.Section>
   );
 }
 

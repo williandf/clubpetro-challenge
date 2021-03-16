@@ -1,6 +1,6 @@
-import Container from "../styles/container";
+import Container from "./styles";
 
-import ImgLogo from '../images/logo.svg';
+import ImgLogo from '../../images/logo.svg';
 
 function Header() {
   return (
